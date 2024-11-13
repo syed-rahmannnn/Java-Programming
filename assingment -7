@@ -1,0 +1,138 @@
+interface BikeParts {
+    String MAKE = "Oracle Bikes";
+    String getHandleBars();
+    void setHandleBars(String newValue);
+    String getTyres();
+    void setTyres(String newValue);
+    String getSeatType();
+    void setSeatType(String newValue);
+}
+interface MountainParts {
+    String TERRAIN = "off_road";
+    String getSuspension();
+    void setSuspension(String newValue);
+    String getType();
+    void setType(String newValue);
+}
+interface RoadParts {   
+    String TERRAIN = "track_racing";
+    String getTyreWidth();
+    void setTyreWidth(String newValue);
+    String getPostHeight();
+    void setPostHeight(String newValue);
+}
+class Bike implements BikeParts {
+    private String handleBars;
+    private String tyres;
+    private String seatType;
+
+    @Override
+    public String getHandleBars() {
+        return handleBars;
+    }
+
+    @Override
+    public void setHandleBars(String newValue) {
+        this.handleBars = newValue;
+    }
+
+    @Override
+    public String getTyres() {
+        return tyres;
+    }
+
+    @Override
+    public void setTyres(String newValue) {
+        this.tyres = newValue;
+    }
+
+    @Override
+    public String getSeatType() {
+        return seatType;
+    }
+
+    @Override
+    public void setSeatType(String newValue) {
+        this.seatType = newValue;
+    }
+}
+class MountainBike extends Bike implements MountainParts {
+    private String suspension;
+    private String type;
+
+    @Override
+    public String getSuspension() {
+        return suspension;
+    }
+
+    @Override
+    public void setSuspension(String newValue) {
+        this.suspension = newValue;
+    }
+
+    @Override
+    public String getType() {
+        return type;
+    }
+
+    @Override
+    public void setType(String newValue) {
+        this.type = newValue;
+    }
+}
+class RoadBike extends Bike implements RoadParts {
+    private String tyreWidth;
+    private String postHeight;
+
+    @Override
+    public String getTyreWidth() {
+        return tyreWidth;
+    }
+
+    @Override
+    public void setTyreWidth(String newValue) {
+        this.tyreWidth = newValue;
+    }
+
+    @Override
+    public String getPostHeight() {
+        return postHeight;
+    }
+
+    @Override
+    public void setPostHeight(String newValue) {
+        this.postHeight = newValue;
+    }
+}
+public class BikeDriver {
+    public static void main(String[] args) {        
+        Bike bike = new Bike();
+        MountainBike mountainBike = new MountainBike();
+        RoadBike roadBike = new RoadBike();
+       
+        bike.setHandleBars("Drop Bars");
+        bike.setTyres("Mountain Tyres");
+        bike.setSeatType("Comfortable Seat");
+        
+        mountainBike.setHandleBars("Flat Bars");
+        mountainBike.setTyres("Knobby Tyres");
+        mountainBike.setSeatType("Racing Seat");
+        mountainBike.setSuspension("Full Suspension");
+        mountainBike.setType("Trail Bike");
+
+        roadBike.setHandleBars("Drop Bars");
+        roadBike.setTyres("Thin Tyres");
+        roadBike.setSeatType("Comfortable Seat");
+        roadBike.setTyreWidth("23mm");
+        roadBike.setPostHeight("22");
+        System.out.println("Initial RoadBike Post Height: " + roadBike.getPostHeight());
+        roadBike.setPostHeight("20");
+        System.out.println("Updated RoadBike Post Height: " + roadBike.getPostHeight());
+    }
+}
+
+
+
+output:
+Initial RoadBike Post Height: 22
+Updated RoadBike Post Height: 2
