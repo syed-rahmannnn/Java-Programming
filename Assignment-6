@@ -1,0 +1,81 @@
+package Mountain;
+import java.util.Scanner;
+import java.util.Random;
+public class sort
+{
+    public static void main(String[] args) 
+    {
+        int[] numbers = new int[50];
+        Random random = new Random();
+        for (int i = 0; i < numbers.length; i++) 
+        {
+            numbers[i] = random.nextInt(101); 
+        }
+        System.out.println("Unordered list:");
+        for (int number : numbers) 
+        {
+            System.out.print(number + " ");
+        }
+        System.out.println();
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("Enter the number to search for: ");
+        int searchValue = scanner.nextInt();
+        int position = linearSearch(numbers, searchValue);
+        if (position == -1) 
+        {
+            System.out.println("Number not found.");
+        } 
+        else 
+        {
+            System.out.println("Number found at position: " + position);
+        }
+        bubbleSort(numbers);
+        System.out.println("Ordered list:");
+        for (int number : numbers) 
+        {
+            System.out.print(number + " ");
+        }
+        System.out.println();
+        position = linearSearch(numbers, searchValue);
+        if (position == -1) 
+        {
+            System.out.println("Number not found in the ordered list.");
+        } 
+        else 
+        {
+            System.out.println("Number found at position in the ordered list: " + position);
+        }
+    }
+    public static int linearSearch(int[] array, int value) 
+    {
+        for (int i = 0; i < array.length; i++) 
+        {
+            if (array[i] == value) 
+            {
+                return i; 
+            }
+        }
+        return -1; 
+    }
+    public static void bubbleSort(int[] array) 
+    {
+        int n = array.length;
+        boolean swapped;
+        do 
+        {
+            swapped = false;
+            for (int i = 1; i < n; i++) 
+            {
+                if (array[i - 1] > array[i]) 
+                {
+                    int temp = array[i - 1];
+                    array[i - 1] = array[i];
+                    array[i] = temp;
+                    swapped = true;
+                }
+            }
+            n--; 
+        } 
+        while (swapped);
+    }
+}
