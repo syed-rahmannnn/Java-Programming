@@ -1,0 +1,83 @@
+
+        * {
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(to right, #74ebd5, #acb6e5);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .login-box {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 15px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+            width: 100%;
+            max-width: 400px;
+        }
+
+        .login-box h2 {
+            text-align: center;
+            color: #333333;
+            margin-bottom: 30px;
+        }
+
+        .login-box label {
+            font-weight: 600;
+            color: #555555;
+        }
+
+        .login-box input[type="text"],
+        .login-box input[type="password"] {
+            width: 100%;
+            padding: 12px;
+            margin-top: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            transition: 0.3s;
+        }
+
+        .login-box input[type="text"]:focus,
+        .login-box input[type="password"]:focus {
+            border-color: #74ebd5;
+            outline: none;
+        }
+
+        .login-box input[type="submit"] {
+            width: 100%;
+            padding: 12px;
+            background-color: #4e9af1;
+            border: none;
+            border-radius: 8px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .login-box input[type="submit"]:hover {
+            background-color: #3e8ed0;
+        }
+
+        .login-box p {
+            text-align: center;
+            margin-top: 20px;
+            font-size: 14px;
+        }
+
+        .login-box a {
+            color: #4e9af1;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .login-box a:hover {
+            text-decoration: underline;
+        }
